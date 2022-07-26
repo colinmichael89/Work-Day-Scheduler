@@ -20,19 +20,16 @@ $(document).ready(function () {
 });
 
 // Logic // Call Functions
-$(document).ready(function () {
-  var currentHour = moment().format("H");
-  if (
-    $(saveButtonEl)
-      .siblings(".col-1")
-      .attr("id" === currentHour)
-      .addClass("present")
-  );
+var currentHour = moment().format("H");
+$(".hour:contains(" + currentHour + ")").addClass("present");
 
-  // if ($(".hour:contains(" + currentHour + ")").addClass("present"));
+// if ($(".hour:contains(" + currentHour + ")").addClass("present"));
 
-  // $(".hour:contains(" + currentHour + ")").addClass("present");
-});
+// if (
+//   $(saveButtonEl)
+//     .siblings(".col-1")
+//     .attr("id" === currentHour)
+//     .addClass("present")
 
 //   .siblings(".col-1")
 //   .attr("id:contains(" + currentHour + ")");
