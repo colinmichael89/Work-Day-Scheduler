@@ -20,7 +20,7 @@ THEN the saved events persist
 
 ## Mock Up
 
-Working Screenshoit this time
+Working Screenshoot this time
 
 ## Link to Functioning Application
 
