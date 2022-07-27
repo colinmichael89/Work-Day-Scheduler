@@ -4,7 +4,7 @@ var currentDay = moment().format("ddd MMM Do, YYYY");
 $("#currentDay").text(currentDay);
 
 var appointmentAddedEl = $(`#appointment-added`);
-var hourEl = $(`#hour`);
+var hourEl = $(`.hour`);
 var eventDescriptionEl = $(`.event-description`);
 var saveButtonEl = $(`.saveBtn`);
 
@@ -17,46 +17,37 @@ $(document).ready(function () {
       $(this).siblings(".event-description").val()
     );
   });
+
+  // Logic // Call Functions
+  var currentHour = moment().format("H");
+
+  var hourArray = $(".hour");
+
+  hourArray
+    .each((element) => {
+      console.log(hourArray[element].id);
+      console.log(currentHour);
+
+      $(hourArray[element].id) === currentHour;
+    })
+    .addClass("future");
+
+  hourArray
+    .each((element) => {
+      $(hourArray[element].id) > currentHour;
+    })
+    .addClass("future");
+
+  hourArray
+    .each((element) => {
+      $(hourArray[element].id) < currentHour;
+    })
+    .addClass("past");
 });
 
-// Logic // Call Functions
-var currentHour = moment().format("H");
-$(".hour:contains(" + currentHour + ")").addClass("present");
-
-// if ($(".hour:contains(" + currentHour + ")").addClass("present"));
-
-// if (
-//   $(saveButtonEl)
-//     .siblings(".col-1")
-//     .attr("id" === currentHour)
-//     .addClass("present")
-
-//   .siblings(".col-1")
-//   .attr("id:contains(" + currentHour + ")");
-// console.log($(this).siblings(".col-1").attr("id"));
-// .addClass("present");
-
-// if (
-//   $(".hour")
-//     .attr("id" === currentHour)
-//     .addClass("present")
-// );
-
-// if (
-//   $(this).siblings(".col-1").attr("id").val() < currentHour.addClass("future")
-// );
-// if ($(this).siblings(".col-1").attr("id").val() > currentHour.addClass("past"));
-// }
-
-// Functions
-// function saveEventDescription(eventDescriptionEl) {
-// console.log(this.previousElementSibling.value);
-
-//   localStorage.setItem(eventDescriptionEl);
-//   JSON.stringify(this.eventDescriptionEl);
-// }
-
-// function clearEvent() {
-//   localStorage.clear;
-//   eventDescription.value = "";
-// }
+function allStorage() {
+  var archive = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    archive[i] = localStorage.getItem(localStorage.key(i));
+  }
+}
