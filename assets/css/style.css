@@ -21,7 +21,7 @@ textarea {
   border-bottom: 10px solid black;
 }
 
-#appointment-added {
+#appointment-added #appointment-deleted {
   font-size: 12px;
   font-weight: bold;
   padding-bottom: none;
@@ -82,4 +82,16 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.notification {
+  display: none;
+}
+
+.delete {
+  display: none;
+}
+
+.show {
+  display: block;
 }
